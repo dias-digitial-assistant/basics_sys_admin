@@ -45,13 +45,13 @@ Sobald Ihr Administrator bestätigt hat, dass Ihr öffentlicher Schlüssel auf d
 
 2. Verbinden Sie sich mit dem Server:
    ```bash
-   ssh benutzername@hostname -p portnummer
+   ssh -i ~/.ssh/id_ed25519 benutzername@hostname -p portnummer
    ```
    Beispiel:
    ```bash
-   ssh meinbenutzer@192.xxx.xxx.xxx -p 22
+   ssh -i ~/.ssh/id_ed25519 meinbenutzer@192.xxx.xxx.xxx -p 22
    ```
-   Wenn der Port 22 ist (Standard), können Sie `-p 22` weglassen.
+   `-i` gibt den Pfad zu Ihrem privaten Schlüssel an. Wenn der Port 22 ist (Standard), können Sie `-p 22` weglassen.
 
 3. Beim ersten Verbinden werden Sie gefragt, ob Sie dem Server vertrauen möchten:
    ```
@@ -126,12 +126,13 @@ Windows 10 und 11 haben einen eingebauten SSH-Client.
 
 2. Verbinden Sie sich mit dem Server:
    ```powershell
-   ssh benutzername@hostname -p portnummer
+   ssh -i C:\Users\IhrName\.ssh\id_ed25519 benutzername@hostname -p portnummer
    ```
    Beispiel:
    ```powershell
-   ssh meinbenutzer@192.xxx.xxx.xxx -p 22
+   ssh -i C:\Users\IhrName\.ssh\id_ed25519 meinbenutzer@192.xxx.xxx.xxx -p 22
    ```
+   `-i` gibt den Pfad zu Ihrem privaten Schlüssel an.
 
 3. Beim ersten Verbinden bestätigen Sie den Fingerabdruck des Servers mit `yes`.
 
@@ -273,13 +274,13 @@ Once your administrator has confirmed that your public key has been added to the
 
 2. Connect to the server:
    ```bash
-   ssh username@hostname -p portnumber
+   ssh -i ~/.ssh/id_ed25519 username@hostname -p portnumber
    ```
    Example:
    ```bash
-   ssh myuser@192.xxx.xxx.xxx -p 22
+   ssh -i ~/.ssh/id_ed25519 myuser@192.xxx.xxx.xxx -p 22
    ```
-   If the port is 22 (default), you can omit `-p 22`.
+   `-i` specifies the path to your private key. If the port is 22 (default), you can omit `-p 22`.
 
 3. On first connection, you will be asked to trust the server:
    ```
@@ -354,12 +355,13 @@ Windows 10 and 11 have a built-in SSH client.
 
 2. Connect to the server:
    ```powershell
-   ssh username@hostname -p portnumber
+   ssh -i C:\Users\YourName\.ssh\id_ed25519 username@hostname -p portnumber
    ```
    Example:
    ```powershell
-   ssh myuser@192.xxx.xxx.xxx -p 22
+   ssh -i C:\Users\YourName\.ssh\id_ed25519 myuser@192.xxx.xxx.xxx -p 22
    ```
+   `-i` specifies the path to your private key.
 
 3. On first connection, confirm the server fingerprint by typing `yes`.
 
@@ -432,7 +434,9 @@ VS Code provides a convenient way to connect to a server via SSH and work direct
        HostName 192.xxx.xxx.xxx
        User myuser
        Port 22
+       IdentityFile ~/.ssh/id_ed25519
      ```
+     On Windows, use instead: `IdentityFile C:\Users\YourName\.ssh\id_ed25519`
    - Save the file.
 
 ### Connecting
